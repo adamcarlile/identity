@@ -1,0 +1,67 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  activerecord:
+    attributes:
+      user:
+        identification: Identification (mobile_number or email)
+
+  errors:
+    general: Sorry, looks like something went wrong
+    unauthorized: Sorry, you're not permitted to access that path
+
+    attributes:
+      identification:
+        blank: can't be blank
+    
+    form:
+      invalid: Sorry, those details are invalid, please check the errors below.
+
+    otp:
+      no_such_user: Sorry a user with that number doesn't exist, please register first.
+      expired_token: Sorry, Looks like that code has expired, please try again.
+      incorrect_token: Sorry, that code is incorrect
+      expired_session: Sorry, that link has expired, please try again
+    
+    token:
+      used_token: Sorry, looks like we couldn't find you, please try again
+
+    registrations:
+      duplicate_entry: Sorry a user with those credentials already exists.
+
+  messages:
+    registrations:
+      verify: To verify your account please enter your one time password below
+    otp_challenge:
+      success: We've sent you a one time password, please enter it below.
+    otp_dispatcher:
+      success: Your OTP is %{otp_code}

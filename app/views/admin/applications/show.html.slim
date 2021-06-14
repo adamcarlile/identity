@@ -1,0 +1,39 @@
+- content_for :title do
+  = resource.name
+
+- content_for :controls do
+  = link_to fa_icon('pencil'), edit_admin_application_path(resource), class: 'button is-link'
+
+table.table.is-fullwidth
+  thead
+    tr
+      th
+      th
+  tbody
+    tr
+      td Application ID
+      td
+        code = resource.uid
+    tr
+      td Secret
+      td
+        code = resource.secret
+    tr
+      td Confidential?
+      td = resource.confidential? ? fa_icon(:check) : fa_icon(:cross)
+    tr
+      td Available Scopes
+      td 
+        .tags
+          = resource.scopes.sort.map {|x| content_tag(:span, x, class: 'tag')}.join(' ').html_safe
+    tr
+      td Redirect URLs
+      td
+        pre
+          code 
+            = resource.redirect_uri
+    tr
+      td Template
+      td 
+        .tags
+          = content_tag(:span, resource.template.to_s, class: 'tag is-primary') if resource.template?

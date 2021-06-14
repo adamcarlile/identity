@@ -1,0 +1,8 @@
+tr
+  td 
+    = link_to application.name, admin_application_path(application)
+  td
+    div.is-pulled-right
+      = link_to fa_icon('pencil'), edit_admin_application_path(application), class: 'button is-small is-link'
+      | &nbsp;
+      = link_to fa_icon('trash'), admin_application_path(application), method: "delete", class: 'button is-small is-danger', data: {confirm: "Are you sure?"}

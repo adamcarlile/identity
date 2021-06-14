@@ -1,0 +1,8 @@
+- content_for(:title) { "Hello" }
+- content_for(:subtitle) { "Confirm where you'd like to receive a verification code" }
+
+ul.unordered-list
+  li = button_to "To the phone number #{obfuscate(resource.mobile_number.to_s)}", \
+    sessions_otp_challenges_path(resource.to_sgid), method: :post, class: 'button is-primary is-fullwidth', \
+    params: { sessions_otp_challenge_form: { mobile_number: resource.mobile_number } }
+  li = button_to "To the email address #{obfuscate(resource.email)}", sessions_token_requests_path(resource.to_sgid), class: 'button is-primary is-fullwidth'

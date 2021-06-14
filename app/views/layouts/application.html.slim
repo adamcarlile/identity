@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title Identity
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    = stylesheet_link_tag    "application", media: 'all'
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  body
+    nav.navbar
+      .container
+        .navbar-brand
+          h1 Identity
+    section.section.body
+      .container
+        .columns.is-centered.is-vcentered
+          .column.is-half.has-text-centered	
+            .page-titles
+              = content_tag(:h1, yield(:title), class: 'title') if content_for? :title
+              = content_tag(:p, yield(:subtitle)) if content_for? :subtitle
+            = render_flashes
+            = yield
+            - if content_for? :subcontent
+              hr.divider
+              = yield(:subcontent)

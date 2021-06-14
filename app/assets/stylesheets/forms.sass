@@ -1,0 +1,85 @@
+@import "bulma"
+
+@media screen and (max-width: 768px)
+  .button.is-fullwidth-mobile
+    display: flex
+    width: 100%
+
+.button.is-text-link
+  border-width: 0px
+  color: $cat-blue
+  font-weight: bold
+
+.button.is-secondary
+  border-color: $cat-blue
+  color: $cat-blue
+  font-weight: bold
+
+input[type=submit], button
+  font-weight: bold
+
+.field.has-addons
+  a.button.is-static
+    border-width: 1px
+
+.otp-control
+  text-align: center
+
+  div.control
+    display: inline-block
+    margin:
+      left: 2px
+      right: 2px
+    
+    input
+      text-align: center
+      padding:
+        left: 0.4em
+        right: 0.4em
+
+
+div.control
+  a.button
+    padding:
+      left: 1em
+      right: 1em
+
+  &.hidden
+    padding: 0px
+
+  abbr[title=required]
+    color: $red
+
+  &.field_with_errors
+    input
+      border-color: $red
+
+  .checkbox-list
+    +clearfix
+    span.checkbox
+      display: block
+      float: left
+      padding-right: 15px
+
+      input
+        margin-right: 5px
+
+
+  input, select
+    border-width: 1px
+    border-color: #cccccc
+    color: #333333
+  
+
+  
+  .help
+    font-size: 1em
+    padding-left: 0.75em
+    padding-bottom: 0.25em
+    padding-top: 0.25em
+    margin-top: 0px
+    border-bottom-right-radius: $radius
+    border-bottom-left-radius: $radius
+
+    &.is-danger
+      color: $red

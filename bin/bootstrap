@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cp .env.example .env
+echo "JWT_PRIVATE_KEY=$(openssl genrsa 512 | base64)\n" >> .env

@@ -1,0 +1,11 @@
+= f.input :name
+= f.input :redirect_uri, \
+  hint: "<p>Use one line per URI</p><p>Use <code>urn:ietf:wg:oauth:2.0:oob</code> for local tests</p> \
+        <p>Use <code>/auth/identity/callback</code> for oauth callbacks</p>".html_safe
+= f.input :scopes, collection: Doorkeeper.configuration.scopes.sort, as: :check_boxes, \
+  hint: 'Scopes are defined in the initializer and are restricted to the configured options'
+= f.input :confidential, \
+  hint: 'Can the client application keep the secrets, secret'
+= f.input :template_name, collection: ::Template.all.keys.sort, \
+  hint: 'Select a template group to override the default look and feel', as: :select_box
+= f.button :submit, class: 'is-primary is-link'

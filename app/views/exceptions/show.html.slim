@@ -1,0 +1,4 @@
+- content_for(:title)    { error.status_code.to_s }
+- content_for(:subtitle) { error.code.to_s.titleize }
+
+= link_to 'Go back', root_path

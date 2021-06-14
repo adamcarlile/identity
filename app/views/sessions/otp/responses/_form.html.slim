@@ -1,0 +1,7 @@
+= simple_form_for form, url: sessions_otp_responses_path, as: :credentials do |f|
+  = f.input :mobile_number, as: :hidden
+  .otp-control
+    - (1..6).each do |n|
+      = f.input "otp_i#{n}".to_sym, as: :string, input_html: { maxlength: 1, class: 'is-medium' }, label: false
+  br
+  = f.button :submit, 'Verify Code', class: 'is-primary is-fullwidth-mobile'

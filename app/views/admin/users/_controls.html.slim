@@ -1,0 +1,6 @@
+= form_with url: collection_path, method: :get, data: { remote: false } do
+  .field.has-addons
+    .control
+      = text_field_tag(:query, params[:query], class: 'input')
+    .control
+      = button_tag(fa_icon(:search), name: nil, class: 'button is-link')

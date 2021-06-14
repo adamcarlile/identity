@@ -1,0 +1,5 @@
+- content_for(:title) { "Hello" }
+- content_for(:subtitle) { "Already have an account?" }
+= link_to 'Log in with your mobile phone', new_sessions_otp_challenges_path, class: 'button is-primary is-fullwidth'
+br
+p #{link_to 'Register', new_registrations_path} for an account

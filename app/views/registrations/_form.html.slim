@@ -1,0 +1,18 @@
+.columns
+  .column.is-half.is-offset-one-quarter
+    = simple_form_for form, url: registrations_path do |f|
+      .field
+        = f.input :first_name, label: false, placeholder: 'First Name'
+      .field
+        = f.input :last_name, label: false, placeholder: 'Last Name'
+      .field
+        = f.input :email, label: false, placeholder: 'Email'
+      .field
+        .control.required.is-paddingless
+          .field.has-addons
+            .control
+              a.button.is-static 🇬🇧 +44
+            = f.input :mobile_number, wrapper_html: { class: 'is-expanded' }, label: false, placeholder: 'Phone Number'
+      .field
+        .control
+          = f.button :submit, 'Create an account', class: 'is-fullwidth is-secondary'

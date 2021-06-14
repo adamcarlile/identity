@@ -1,0 +1,12 @@
+- content_for(:subtitle) { "Already have an account? Login with your mobile number" }
+- content_for(:subcontent) { render(partial: 'registrations/customers/new_account') }
+
+= simple_form_for form, url: sessions_otp_challenges_path do |f|
+  .columns
+    .column.is-three-quarters
+      .field.has-addons
+        .control
+          a.button.is-static 🇬🇧 +44
+        = f.input :mobile_number, placeholder: 'Mobile Number', label: false, wrapper_html: { class: 'is-expanded' }
+    .column
+      = f.button :submit, 'Login', class: 'is-primary is-fullwidth'

@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title Identity
+    = stylesheet_link_tag    "application", media: 'all'
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  body
+    nav.navbar
+      .container
+        .navbar-brand
+          h1 Identity
+    section.section.body
+      .container
+        .columns
+          .column.is-one-fifth
+            aside.menu
+              p.menu-label Administration
+              ul.menu-list
+                li = link_to("Users", admin_users_path)
+                li = link_to("Applications", admin_applications_path)
+              
+          .column.box
+            .level
+              .level-left
+                h1.level-item.title.is-size-3 = content_for?(:title) ? yield(:title) : controller_name.humanize
+              .level-right
+                = yield(:controls)
+            = render_flashes
+            = yield

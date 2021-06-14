@@ -1,0 +1,5 @@
+- content_for(:title)    { "Hello" }
+- content_for(:subtitle) { "Please enter the code sent to your phone number #{content_tag(:strong, resource.mobile_number)}".html_safe }
+== render 'form'
+br
+= link_to "Didn't receive OTP?", sessions_backup_path(resource.to_sgid(expires_in: 10.minutes)), class: 'button is-text-link is-fullwidth-mobile'

@@ -1,0 +1,16 @@
+- content_for :title do
+  = "#{resource.last_name}, #{resource.first_name}" 
+
+- content_for :controls do
+  = link_to fa_icon('pencil'), edit_admin_user_path(resource), class: 'button is-link'
+
+table.table.is-fullwidth
+  thead
+    tr
+      th
+      th
+  tbody
+    tr
+      td Email address
+      td 
+        code = resource.email

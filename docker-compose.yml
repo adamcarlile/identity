@@ -1,0 +1,35 @@
+version: '3'
+services:
+  db:
+    image: postgres:9.6.10
+    ports:
+      - 5432:5432
+    volumes:
+      - ./tmp/postgres_data:/var/lib/postgresql/data
+    restart: always
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  app:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/identity-service
+    command: bin/rails s -b '0.0.0.0'
+    environment:
+      POSTGRESQL_USER: postgres
+      POSTGRESQL_PASSWORD: ""
+      POSTGRESQL_HOST: db
+      POSTGRESQL_DBNAME: identity_service
+      PAGER: more
+      JWT_PRIVATE_KEY: ${JWT_PRIVATE_KEY}
+      SEND_SMS: ${SEND_SMS}
+      RAILS_ENV: development
+
+

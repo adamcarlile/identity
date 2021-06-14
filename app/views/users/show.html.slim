@@ -1,0 +1,4 @@
+- content_for(:title)    { "Hello, #{current_user.first_name}" }
+- content_for(:subtitle) { "Welcome to Identity" }
+
+= button_to 'Log out', sessions_path, method: :delete, class: 'button is-primary'
