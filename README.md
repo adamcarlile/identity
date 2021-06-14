@@ -26,7 +26,7 @@ ID supports the following `OAuth2` [grant types](https://oauth.net/2/grant-types
 
 In future the `implicit` grant flow should be [dropped in favour of `authorization_code` with `PKCE`](https://developer.okta.com/blog/2019/08/22/okta-authjs-pkce/) and the `password` grant flow dropped entirely
 
-For more information on how to implement the above flows please see the [OAuth](https://oauth.net/) website, or take a look at the [Bouncer](https://github.com/cat-home-experts/bouncer) middleware, but essentially the following happens:
+For more information on how to implement the above flows please see the [OAuth](https://oauth.net/) website, or take a look at the [Bouncer](https://github.com/adamcarlile/bouncer) middleware, but essentially the following happens:
 
 1. User vists a site that's secured, 
 2. Redirect them to ID
@@ -77,7 +77,7 @@ If you've made a request with the `client_credentials` flow, then the payload wi
 
 ### Json Web Keyset
 
-Instead of diseminating the public keys to individual applications, applications can make use of the JWKS in order to ensure that the token is indeed verified
+Instead of disseminating the public keys to individual applications, applications can make use of the JWKS in order to ensure that the token is indeed verified
 
 JWKS are served from `/.well-known/jwks.json`
 
